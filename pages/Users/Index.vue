@@ -29,8 +29,8 @@
          <div class="flex flex-col mt-20 mx-10">
             <div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">              
-                        <table class="min-w-full divide-y divide-gray-200">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg text-center">              
+                       <!--  <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-blue-100">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
@@ -61,15 +61,36 @@
                                     </td>                                                  
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">                          
                                         <div class="flex z-40">
-                                            <!-- <inertia-link :href="route('companies.edit',item.id)" 
-                                            class="cursor-pointer mr-3" > <icon class="text-gray-500 hover:text-cyan-700" name='edit'/></inertia-link>
-                                            <inertia-link @click="Destroy(item.id)"
-                                            class="cursor-pointer" > <icon class="text-gray-500 hover:text-cyan-700" name='delete-blank'/></inertia-link> -->
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
+                         <div class="flex flex-col mx-10 my-10" style="background-color:#680F19"> 
+                             <div class="w-full mx-auto my-20 text-white text-6xl">
+                                 ORBITWEB TV.
+                                 
+                            </div>                            
+                              <div class="w-full ml-40 mb-10">
+                                  <v-clappr 
+                                    el="player"
+                                    source="https://cdn.elsalvadordigital.com:1936/wowtv/smil:wowtv.smil/playlist.m3u8"
+                                    :options="options"
+                                    @init="oninit"
+                                    @ready="onready"
+                                    @play="onplay"
+                                    @pause="onpause"
+                                    @stop="onstop"
+                                    @ended="onended"
+                                    @fullscreen="onfullscreen"
+                                    @resize="onresize"
+                                    @seek="onseek"
+                                    @timeupdate="ontimeupdate"
+                                    @volumeupdate="onvolumeupdate"
+                                    @error="onerror"
+                                />
+                              </div>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -77,6 +98,7 @@
     </div>
 </template>
 <script>
+import VClappr from 'v-clappr'
 export default {
     data(){
         return{
@@ -88,7 +110,7 @@ export default {
         console.log('requesting data')
     },
     components:{
-       
+       VClappr
     },
     methods:
     {
